@@ -7,11 +7,15 @@ import LoginPage from "../Login/Loginpage";
 import Register from "../Login/Register";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Brands from "../Pages/Brands";
+import Footer from "../footeer.jsx/Footer";
+import AllBrands from "../Pages/AllBrands";
 
 
 const RouterPage = () => {
   return (
     <Router>
+          <Nav />
     
 
       <Routes>
@@ -21,8 +25,11 @@ const RouterPage = () => {
         {/* Login Page */}
         <Route path="/login" element={<LoginPage />} />
         <Route path="/Register" element={< Register/>} />
+         <Route path="/brands" element={<Brands />} />
+          <Route path="/all-brands" element={<AllBrands />} />
       </Routes>
       <ToastContainer position="top-right" autoClose={3000} />
+      <Footer/>
     </Router>
   );
 };

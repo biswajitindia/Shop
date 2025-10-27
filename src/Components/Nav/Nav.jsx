@@ -56,7 +56,7 @@ const Nav = () => {
           >
             SHOP NOW ▾
           </li>
-          <li className="cursor-pointer hover:text-purple-500">BRANDS</li>
+          <li className="cursor-pointer hover:text-purple-500"><Link to="/brands">ALL BRANDS</Link></li>
           <li className="cursor-pointer hover:text-purple-500">HONEST IDEAS</li>
           <li className="cursor-pointer hover:text-purple-500">CONTACT US</li>
           <li className="cursor-pointer hover:text-purple-500">BUSINESS PRICING</li>
