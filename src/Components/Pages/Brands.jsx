@@ -1,7 +1,4 @@
 
-
-
-
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import brandName from "./Brand"; // array of brand names

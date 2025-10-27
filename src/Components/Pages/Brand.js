@@ -256,4 +256,4 @@ const brandName = [
   "LAVIOR"
 ];
 
-export default brands;
+export default brandName;
