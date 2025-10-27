@@ -1,74 +1,7 @@
-// import React from "react";
-// import { FiSearch } from "react-icons/fi";
-// import { FaRegUserCircle, FaShoppingCart, FaQuestionCircle } from "react-icons/fa";
-
-// const Nav = () => {
-//     const Logo = "https://www.shutterstock.com/image-vector/mom-baby-care-logo-design-260nw-2250860857.jpg";
-//   return (
-//     <nav className="w-full bg-gray-50 border-b border-gray-200">
-//       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-4 py-3 space-y-3 md:space-y-0">
-        
-//         {/* Left Section - Logo */}
-//         <div className="flex items-center space-x-3">
-//           <img
-//             src={Logo}
-//             alt="HonestMed"
-//             className="h-30 w-auto"
-//           />
-//         </div>
-
-//         {/* Center Section - Search Bar */}
-//         <div className="flex items-center w-full md:w-1/3 border border-purple-400 rounded-full px-4 py-1 bg-white">
-//           <input
-//             type="text"
-//             placeholder="Search"
-//             className="flex-1 outline-none text-sm text-gray-700"
-//           />
-//           <FiSearch className="text-purple-500 text-lg" />
-//         </div>
-
-//         {/* Right Section - Help / Account / Cart */}
-//         <div className="flex items-center space-x-6 text-sm text-purple-700">
-//           <div className="flex items-center space-x-1 cursor-pointer hover:text-purple-500">
-//             <FaQuestionCircle className="text-blue-500 text-lg" />
-//             <span>NEED HELP?</span>
-//           </div>
-//           <div className="flex items-center space-x-1 cursor-pointer hover:text-purple-500">
-//             <FaRegUserCircle className="text-blue-500 text-lg" />
-//             <span>YOUR ACCOUNT</span>
-//           </div>
-//           <div className="flex items-center space-x-1 cursor-pointer hover:text-purple-500 relative">
-//             <FaShoppingCart className="text-blue-500 text-lg" />
-//             <span>YOUR CART</span>
-//             <span className="absolute -top-2 -right-3 bg-purple-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
-//               0
-//             </span>
-//           </div>
-//         </div>
-//       </div>
-
-//       {/* Bottom Menu */}
-//       <div className="w-full bg-gray-50 border-t border-gray-200">
-//         <ul className="flex items-center justify-center space-x-8 py-2 text-sm text-purple-700 font-semibold">
-//           <li className="cursor-pointer hover:text-purple-500">SHOP NOW ▾</li>
-//           <li className="cursor-pointer hover:text-purple-500">BRANDS</li>
-//           <li className="cursor-pointer hover:text-purple-500">HONEST IDEAS</li>
-//           <li className="cursor-pointer hover:text-purple-500">CONTACT US</li>
-//           <li className="cursor-pointer hover:text-purple-500">BUSINESS PRICING</li>
-//         </ul>
-//       </div>
-//     </nav>
-//   );
-// };
-
-// export default Nav;
-
-
-
-
 import React, { useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import { FaRegUserCircle, FaShoppingCart, FaQuestionCircle } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   const [openMenu, setOpenMenu] = useState(false);
@@ -101,7 +34,8 @@ const Nav = () => {
           </div>
           <div className="flex items-center space-x-1 cursor-pointer hover:text-purple-500">
             <FaRegUserCircle className="text-blue-500 text-lg" />
-            <span>YOUR ACCOUNT</span>
+            <Link to="/login"><span>YOUR ACCOUNT</span></Link>
+            {/* <span>YOUR ACCOUNT</span> */}
           </div>
           <div className="flex items-center space-x-1 cursor-pointer hover:text-purple-500 relative">
             <FaShoppingCart className="text-blue-500 text-lg" />
