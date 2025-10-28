@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import brandName from "./Brand"; // array of brand names
@@ -10,7 +9,7 @@ const Brands = () => {
   const displayBrands = brandName.slice(0, 19);
 
   return (
-    <div className="bg-gray-50 py-16 px-6 md:px-20 text-center min-h-screen">
+    <div className="bg-gray-50 py-16 px-6 md:px-40 text-center min-h-screen">
       {/* Header */}
       <div className="mb-10">
         <p className="text-purple-700 font-semibold">
@@ -28,24 +27,31 @@ const Brands = () => {
       </div>
 
       {/* Brand Circles Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 justify-items-center">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 justify-items-center">
         {displayBrands.map((brand, index) => (
           <div
             key={index}
-            className="flex items-center justify-center w-32 h-32 border-2 border-purple-200 rounded-full bg-white shadow-sm hover:shadow-md transition transform hover:scale-105"
+            className="relative flex items-center justify-center w-43 h-43 border-2 border-purple-200 rounded-full bg-white shadow-sm hover:shadow-md transition transform hover:scale-105 overflow-hidden group"
           >
-            <span className="text-gray-800 font-semibold text-center px-2">
+            {/* Text */}
+            <span className="relative z-10 text-gray-800 font-semibold  text-center px-2 transition-colors duration-700 group-hover:text-white">
               {brand}
             </span>
+
+            {/* Animated Green Fill */}
+            <span className="absolute inset-0 bg-gradient-to-r from-gray-400 to-gray-500 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-[500ms] ease-out rounded-full"></span>
           </div>
         ))}
 
         {/* Last circle: More Brands button */}
         <div
-          className="flex items-center justify-center w-32 h-32 border-2 border-purple-200 rounded-full bg-white shadow-sm hover:shadow-md transition transform hover:scale-105 cursor-pointer"
+          className="relative flex items-center justify-center w-32 h-32 border-2 border-purple-200 rounded-full bg-white shadow-sm hover:shadow-md transition transform hover:scale-105 overflow-hidden group cursor-pointer"
           onClick={() => navigate("/all-brands")}
         >
-          <span className="text-purple-600 font-semibold text-sm">More Brands</span>
+          <span className="relative z-10 text-purple-600 font-semibold text-sm transition-colors duration-700 group-hover:text-white">
+            More Brands
+          </span>
+          <span className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-500 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-[500ms] ease-out rounded-full"></span>
         </div>
       </div>
     </div>
