@@ -251,6 +251,7 @@ import { menuData } from "./ManuData";
 
 const Nav = () => {
   const [openMenu, setOpenMenu] = useState(false);
+  const [help, setHelp] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
   const [activeCategory, setActiveCategory] = useState(null);
   const [activeSubMenu, setActiveSubMenu] = useState(null);
@@ -304,10 +305,37 @@ const Nav = () => {
 
         {/* Right: Icons (Desktop) */}
         <div className="hidden md:flex items-center space-x-6 text-sm text-purple-700">
-          <div className="flex items-center space-x-1 cursor-pointer hover:text-purple-500">
-            <FaQuestionCircle className="text-blue-500 text-lg" />
-            <span>NEED HELP?</span>
+          {/* ✅ Help Popup Section */}
+          <div className="relative" ref={dropdownRef}>
+            <div
+              className="flex items-center space-x-1 cursor-pointer hover:text-purple-500"
+              onClick={() => setHelp((prev) => !prev)}
+              
+            >
+              <FaQuestionCircle className="text-blue-500 text-lg" />
+              <span>NEED HELP?</span>
+            </div>
+
+            {/* 🧾 Help Popup */}
+            {setHelp && (
+              <div className="absolute right-0 mt-3 w-80 bg-white border border-purple-200 shadow-xl rounded-lg z-50 p-5 text-center">
+                <h3 className="text-lg font-serif text-gray-800 mb-2">
+                  Speak To One Of Our<br />Honest Care Specialists
+                </h3>
+                <hr className="border-purple-300 mb-3" />
+                <p className="text-xl text-purple-700 font-semibold mb-1">
+                  (833) 933-2323
+                </p>
+                <p className="text-sm text-gray-500 mb-4">
+                  6am to 5pm Monday to Friday<br />Pacific Time
+                </p>
+                <button className="bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 px-6 rounded-full">
+                  Email Us
+                </button>
+              </div>
+            )}
           </div>
+
 
           <div className="flex items-center space-x-1 cursor-pointer hover:text-purple-500">
             <FaRegUserCircle className="text-blue-500 text-lg" />
@@ -393,7 +421,7 @@ const Nav = () => {
         {openMenu && (
           <div
             ref={dropdownRef}
-            className="absolute left-0 w-3/4 shadow-xl  rounded-md mt-1 z-50 flex h-[450px]"
+            className="absolute left-30 w-3/4 shadow-xl  rounded-md mt-1 z-50 flex h-[450px]"
           >
             {/* Left Categories */}
             <div className="w-1/4 bg-purple-50 border-r border-gray-200 overflow-y-auto">
@@ -404,11 +432,10 @@ const Nav = () => {
                     setActiveCategory(cat);
                     setActiveSubMenu(null);
                   }}
-                  className={`px-4 py-3 cursor-pointer flex justify-between items-center ${
-                    activeCategory?.category === cat.category
+                  className={`px-4 py-3 cursor-pointer flex justify-between items-center ${activeCategory?.category === cat.category
                       ? "bg-white font-semibold text-purple-800"
                       : "hover:bg-purple-100 text-purple-700"
-                  }`}
+                    }`}
                 >
                   {cat.category}
                   {cat.subMenu?.length > 0 && <FiChevronRight />}
@@ -423,11 +450,10 @@ const Nav = () => {
                   <div
                     key={i}
                     onMouseEnter={() => setActiveSubMenu(sub)}
-                    className={`px-4 py-3 cursor-pointer flex justify-between items-center ${
-                      activeSubMenu?.title === sub.title
+                    className={`px-4 py-3 cursor-pointer flex justify-between items-center ${activeSubMenu?.title === sub.title
                         ? "bg-white font-semibold text-purple-800"
                         : "hover:bg-gray-100 text-gray-700"
-                    }`}
+                      }`}
                   >
                     {sub.title}
                     {sub.children?.length > 0 && <FiChevronRight />}

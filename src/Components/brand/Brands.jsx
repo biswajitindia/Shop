@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import brandName from "./Brand"; // array of brand names
 
 const Brands = () => {
@@ -13,7 +13,8 @@ const Brands = () => {
       {/* Header */}
       <div className="mb-10">
         <p className="text-purple-700 font-semibold">
-          Shop | <span className="text-blue-500 cursor-pointer">All Brands</span>
+          Shop | <Link to="/all-brands"><span className="text-blue-500 cursor-pointer">All Brands</span></Link>
+          
         </p>
         <h2 className="text-3xl font-bold text-gray-800 mt-2">
           Featured Manufacturers

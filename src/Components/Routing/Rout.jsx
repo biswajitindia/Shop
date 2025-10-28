@@ -7,9 +7,9 @@ import LoginPage from "../Login/Loginpage";
 import Register from "../Login/Register";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Brands from "../Pages/Brands";
+import Brands from "../brand/Brands";
 import Footer from "../footeer.jsx/Footer";
-import AllBrands from "../Pages/AllBrands";
+import AllBrands from "../brand/AllBrands";
 import Contact from "../contact/Contact";
 import Cart from "../cart/Cart";
 

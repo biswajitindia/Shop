@@ -12,14 +12,14 @@ const AllBrands = () => {
 
   return (
     <div className="bg-gray-50 min-h-screen p-8">
-      <h1 className="text-3xl font-bold mb-6 text-center">All Brands</h1>
+      <h1 className="text-3xl text-black font-bold mb-6 text-center">All Brands</h1>
 
       {/* Search Bar */}
       <div className="max-w-xl mx-auto mb-8">
         <input
           type="text"
           placeholder="Search brands..."
-          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+          className="w-full px-4 py-2 border  text-black border-gray-300 rounded-md focus:outline-none focus:ring-2  focus:ring-purple-500"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
@@ -33,7 +33,7 @@ const AllBrands = () => {
             return (
               <div
                 key={idx}
-                className={`border rounded-md p-4 text-center cursor-pointer transition
+                className={`border rounded-md p-4 text-center cursor-pointer  transition text-black
                 ${
                   isMatch && searchTerm !== ""
                     ? "bg-purple-200 border-purple-600 font-semibold"

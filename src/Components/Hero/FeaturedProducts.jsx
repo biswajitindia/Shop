@@ -1,6 +1,6 @@
 import React from "react";
 
-const Product = () => {
+const FeaturedProducts= () => {
   const products = [
     {
       id: 1,
@@ -43,15 +43,15 @@ const Product = () => {
   const formatPrice = (price) => `$${price.toFixed(2)}`;
 
   return (
-    <div className="bg-gray-50 min-h-screen p-7">
+    <div className="bg-gray-50 p-20 pt-0 pb-10">
       <h1
         className="text-4xl font-light mb-8 text-gray-700"
-        style={{ fontFamily: "serif", color: "#181928ff" }}
+        style={{ fontFamily: "serif", color: "#45464eff" }}
       >
         Featured Products
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-7xl mx-auto">
         {products.map((p) => (
           <div
             key={p.id}
@@ -81,4 +81,5 @@ const Product = () => {
   );
 };
 
-export default Product;
+export default FeaturedProducts
+;
