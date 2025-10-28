@@ -1,22 +1,195 @@
-import React, { useState } from "react";
-import { FiSearch } from "react-icons/fi";
+
+// import React, { useState } from "react";
+// import { FiChevronRight, FiSearch } from "react-icons/fi";
+// import { FaRegUserCircle, FaShoppingCart, FaQuestionCircle } from "react-icons/fa";
+// import { Link } from "react-router-dom";
+// import { menuData } from "./ManuData";
+
+// const Nav = () => {
+//   const [openMenu, setOpenMenu] = useState(false);
+//   const [activeCategory, setActiveCategory] = useState(null);
+//   const [activeSubMenu, setActiveSubMenu] = useState(null);
+
+//   const Logo =
+//     "https://www.shutterstock.com/image-vector/mom-baby-care-logo-design-260nw-2250860857.jpg";
+
+//   return (
+//     <nav className="w-full bg-gray-50 border-b border-gray-200 relative">
+//       {/* Top Navbar */}
+//       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-4 py-3 space-y-3 md:space-y-0">
+//         <img src={Logo} alt="Logo" className="h-14 w-auto" />
+
+//         {/* Search */}
+//         <div className="flex items-center w-full md:w-1/3 border border-purple-400 rounded-full px-4 py-1 bg-white">
+//           <input
+//             type="text"
+//             placeholder="Search"
+//             className="flex-1 outline-none text-sm text-gray-700"
+//           />
+//           <FiSearch className="text-purple-500 text-lg" />
+//         </div>
+
+//         {/* Icons */}
+//         <div className="flex items-center space-x-6 text-sm text-purple-700">
+//           <div className="flex items-center space-x-1 cursor-pointer hover:text-purple-500">
+//             <FaQuestionCircle className="text-blue-500 text-lg" />
+//             <span>NEED HELP?</span>
+//           </div>
+//           <div className="flex items-center space-x-1 cursor-pointer hover:text-purple-500">
+//             <FaRegUserCircle className="text-blue-500 text-lg" />
+//             <Link to="/login"><span>YOUR ACCOUNT</span></Link>
+//           </div>
+//           <div className="flex items-center space-x-1 cursor-pointer hover:text-purple-500 relative">
+//             <FaShoppingCart className="text-blue-500 text-lg" />
+//             <span>YOUR CART</span>
+//             <span className="absolute -top-2 -right-3 bg-purple-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+//               0
+//             </span>
+//           </div>
+//         </div>
+//       </div>
+
+//       {/* Bottom Menu */}
+//       <div className="w-full bg-gray-50 border-t border-gray-200 relative">
+//         <ul className="flex items-center justify-center space-x-8 py-2 text-sm text-purple-700 font-semibold">
+//           <li
+//             onClick={() => setOpenMenu(!openMenu)}
+//             className="cursor-pointer hover:text-purple-500 relative"
+//           >
+//             <Link to="/"> SHOP NOW ▾</Link>
+//           </li>
+//           <li><Link to="/brands" className="hover:text-purple-500">ALL BRANDS</Link></li>
+//           <li className="hover:text-purple-500"> <Link to="/contact">CONTACT US</Link>   </li>
+//           <li className="hover:text-purple-500">BUSINESS PRICING</li>
+//         </ul>
+
+//         {/* Mega Dropdown */}
+//         {openMenu && (
+//           <div className="absolute left-0 w-3/4 shadow-xl border border-gray-200 rounded-md mt-1 z-50 flex h-[450px]">
+//             {/* Main Categories */}
+//             <div className="w-1/4 bg-purple-50 border-r border-gray-200 overflow-y-auto">
+//               {menuData.map((cat, i) => (
+//                 <div
+//                   key={i}
+//                   onMouseEnter={() => { setActiveCategory(cat); setActiveSubMenu(null); }}
+//                   className={`px-4 py-3 cursor-pointer flex justify-between items-center ${
+//                     activeCategory?.category === cat.category
+//                       ? "bg-white font-semibold text-purple-800"
+//                       : "hover:bg-purple-100 text-purple-700"
+//                   }`}
+//                 >
+//                   {cat.category}
+//                   {cat.subMenu?.length > 0 && <FiChevronRight />}
+//                 </div>
+//               ))}
+//             </div>
+
+//             {/* Submenu (if any) */}
+//             {activeCategory && activeCategory.subMenu?.length > 0 && (
+//               <div className="w-1/4 bg-gray-50 border-r border-gray-200 overflow-y-auto">
+//                 {activeCategory.subMenu.map((sub, i) => (
+//                   <div
+//                     key={i}
+//                     onMouseEnter={() => setActiveSubMenu(sub)}
+//                     className={`px-4 py-3 cursor-pointer flex justify-between items-center ${
+//                       activeSubMenu?.title === sub.title
+//                         ? "bg-white font-semibold text-purple-800"
+//                         : "hover:bg-gray-100 text-gray-700"
+//                     }`}
+//                   >
+//                     {sub.title}
+//                     {sub.children?.length > 0 && <FiChevronRight />}
+//                   </div>
+//                 ))}
+//               </div>
+//             )}
+
+//             {/* Right-most menu */}
+//             {activeSubMenu && activeSubMenu.children?.length > 0 && (
+//               <div className="w-1/2 bg-white p-6 overflow-y-auto">
+//                 <h2 className="text-lg font-semibold text-purple-700 mb-4">
+//                   {activeSubMenu.title}
+//                 </h2>
+//                 <div className="grid grid-cols-2 gap-6 text-sm">
+//                   {activeSubMenu.children.map((child, i) => (
+//                     <div key={i}>
+//                       <h3 className="font-semibold text-purple-700 mb-2">
+//                         {child.title}
+//                       </h3>
+//                       <ul className="space-y-1">
+//                         {child.items.map((item, j) => (
+//                           <li key={j} className="hover:text-purple-600 cursor-pointer">
+//                             {item}
+//                           </li>
+//                         ))}
+//                       </ul>
+//                     </div>
+//                   ))}
+//                 </div>
+//               </div>
+//             )}
+//           </div>
+//         )}
+//       </div>
+//     </nav>
+//   );
+// };
+
+// export default Nav;
+
+
+
+import React, { useState, useRef, useEffect } from "react";
+import { FiChevronRight, FiSearch } from "react-icons/fi";
 import { FaRegUserCircle, FaShoppingCart, FaQuestionCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { menuData } from "./ManuData";
 
 const Nav = () => {
   const [openMenu, setOpenMenu] = useState(false);
-  const Logo =
-    "https://www.shutterstock.com/image-vector/mom-baby-care-logo-design-260nw-2250860857.jpg";
+  const [activeCategory, setActiveCategory] = useState(null);
+  const [activeSubMenu, setActiveSubMenu] = useState(null);
+  const [showCart, setShowCart] = useState(false);
+
+  const dropdownRef = useRef(null);
+  const Logo = "https://www.shutterstock.com/image-vector/mom-baby-care-logo-design-260nw-2250860857.jpg";
+
+  // 🧠 Close dropdown when clicking outside or pressing Escape
+  useEffect(() => {
+  const handleClickOutside = (event) => {
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target)
+    ) {
+      setOpenMenu(false);
+      setShowCart(false); // ✅ Close cart if clicked outside
+    }
+  };
+
+  const handleEscKey = (event) => {
+    if (event.key === "Escape") {
+      setOpenMenu(false);
+      setShowCart(false);
+    }
+  };
+
+  document.addEventListener("mousedown", handleClickOutside);
+  document.addEventListener("keydown", handleEscKey);
+
+  return () => {
+    document.removeEventListener("mousedown", handleClickOutside);
+    document.removeEventListener("keydown", handleEscKey);
+  };
+}, []);
 
   return (
     <nav className="w-full bg-gray-50 border-b border-gray-200 relative">
+      {/* 🔹 Top Navbar */}
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-4 py-3 space-y-3 md:space-y-0">
         {/* Logo */}
-        <div className="flex items-center space-x-3">
-          <img src={Logo} alt="Logo" className="h-14 w-auto" />
-        </div>
+        <img src={Logo} alt="Logo" className="h-14 w-auto" />
 
-        {/* Search bar */}
+        {/* 🔍 Search Bar */}
         <div className="flex items-center w-full md:w-1/3 border border-purple-400 rounded-full px-4 py-1 bg-white">
           <input
             type="text"
@@ -26,91 +199,156 @@ const Nav = () => {
           <FiSearch className="text-purple-500 text-lg" />
         </div>
 
-        {/* Right section */}
+        {/* 👤 Icons Section */}
         <div className="flex items-center space-x-6 text-sm text-purple-700">
+          {/* Help */}
           <div className="flex items-center space-x-1 cursor-pointer hover:text-purple-500">
             <FaQuestionCircle className="text-blue-500 text-lg" />
             <span>NEED HELP?</span>
           </div>
+
+          {/* Account */}
           <div className="flex items-center space-x-1 cursor-pointer hover:text-purple-500">
             <FaRegUserCircle className="text-blue-500 text-lg" />
             <Link to="/login"><span>YOUR ACCOUNT</span></Link>
-            {/* <span>YOUR ACCOUNT</span> */}
           </div>
-          <div className="flex items-center space-x-1 cursor-pointer hover:text-purple-500 relative">
-            <FaShoppingCart className="text-blue-500 text-lg" />
-            <span>YOUR CART</span>
-            <span className="absolute -top-2 -right-3 bg-purple-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
-              0
-            </span>
-          </div>
+
+          {/* 🛒 Cart with Popup */}
+          {/* 🛒 Cart with Popup (Click + Outside Close) */}
+<div className="relative" ref={dropdownRef}>
+  <div
+    className="flex items-center space-x-1 cursor-pointer hover:text-purple-500"
+    onClick={() => setShowCart((prev) => !prev)}
+  >
+    <FaShoppingCart className="text-blue-500 text-lg" />
+    <span>YOUR CART</span>
+    <span className="absolute -top-2 -right-3 bg-purple-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+      0
+    </span>
+  </div>
+
+  {/* 🧾 Cart Popup */}
+  {showCart && (
+    <div
+      className="absolute right-0 mt-3 w-72 bg-white border border-purple-200 shadow-lg rounded-lg z-50"
+    >
+      <div className="bg-purple-100 text-purple-800 font-semibold p-3 rounded-t-lg">
+        0 item added to your cart
+      </div>
+      <div className="p-4 text-sm text-gray-600">
+        <p>0 Items in your cart</p>
+        <p className="font-semibold mt-1">Cart Total: $0.00</p>
+      </div>
+      <div className="p-3 border-t border-purple-100">
+        <Link
+          to="/checkout"
+          className="block text-center bg-purple-600 text-white py-2 rounded-full hover:bg-purple-700 transition-all"
+          onClick={() => setShowCart(false)}
+        >
+          Checkout
+        </Link>
+      </div>
+    </div>
+  )}
+</div>
+
         </div>
       </div>
 
-      {/* Bottom Menu */}
+      {/* 🔹 Bottom Menu */}
       <div className="w-full bg-gray-50 border-t border-gray-200 relative">
         <ul className="flex items-center justify-center space-x-8 py-2 text-sm text-purple-700 font-semibold">
           <li
             onClick={() => setOpenMenu(!openMenu)}
             className="cursor-pointer hover:text-purple-500 relative"
           >
-            SHOP NOW ▾
+            <Link to="/"> SHOP NOW ▾</Link>
           </li>
-          <li className="cursor-pointer hover:text-purple-500"><Link to="/brands">ALL BRANDS</Link></li>
-          <li className="cursor-pointer hover:text-purple-500">HONEST IDEAS</li>
-          <li className="cursor-pointer hover:text-purple-500">CONTACT US</li>
-          <li className="cursor-pointer hover:text-purple-500">BUSINESS PRICING</li>
+          <li>
+            <Link to="/brands" className="hover:text-purple-500">
+              ALL BRANDS
+            </Link>
+          </li>
+          <li className="hover:text-purple-500">
+            <Link to="/contact">CONTACT US</Link>
+          </li>
+          <li className="hover:text-purple-500">BUSINESS PRICING</li>
         </ul>
 
-        {/* Dropdown Menu */}
+        {/* 🔽 Mega Dropdown */}
         {openMenu && (
-          <div className="absolute left-1/2 transform -translate-x-1/2 bg-white shadow-xl border border-gray-200 rounded-lg mt-2 w-11/12 md:w-3/4 p-6 z-50">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-sm text-gray-700">
-              <div>
-                <h3 className="font-semibold text-purple-700 mb-2">
-                  Adult Incontinence Products
-                </h3>
-                <ul className="space-y-1">
-                  <li>Adult Diapers</li>
-                  <li>Underpads</li>
-                  <li>Wipes & Washcloths</li>
-                  <li>Skin Care</li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="font-semibold text-purple-700 mb-2">
-                  Baby Supplies & Essentials
-                </h3>
-                <ul className="space-y-1">
-                  <li>Baby Formula</li>
-                  <li>Baby Wipes</li>
-                  <li>Feeding Bottles</li>
-                  <li>Infant Diapers</li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="font-semibold text-purple-700 mb-2">
-                  Nutritional & Feeding
-                </h3>
-                <ul className="space-y-1">
-                  <li>Food Supplements</li>
-                  <li>Meal Replacements</li>
-                  <li>Enteral Feeding</li>
-                  <li>Purees & Beverages</li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="font-semibold text-purple-700 mb-2">
-                  Medical Supplies
-                </h3>
-                <ul className="space-y-1">
-                  <li>Gloves</li>
-                  <li>Gauze & Bandages</li>
-                  <li>Thermometers</li>
-                  <li>Mobility Aids</li>
-                </ul>
-              </div>
+          <div
+            ref={dropdownRef}
+            className="absolute left-0 w-3/4 shadow-xl border border-gray-200 rounded-md mt-1 z-50 flex h-[450px]"
+          >
+            {/* Left Categories */}
+            <div className="w-1/4 bg-purple-50 border-r border-gray-200 overflow-y-auto">
+              {menuData.map((cat, i) => (
+                <div
+                  key={i}
+                  onMouseEnter={() => {
+                    setActiveCategory(cat);
+                    setActiveSubMenu(null);
+                  }}
+                  className={`px-4 py-3 cursor-pointer flex justify-between items-center ${
+                    activeCategory?.category === cat.category
+                      ? "bg-white font-semibold text-purple-800"
+                      : "hover:bg-purple-100 text-purple-700"
+                  }`}
+                >
+                  {cat.category}
+                  {cat.subMenu?.length > 0 && <FiChevronRight />}
+                </div>
+              ))}
             </div>
+
+            {/* Middle Submenu */}
+            {activeCategory && activeCategory.subMenu?.length > 0 && (
+              <div className="w-1/4 bg-gray-50 border-r border-gray-200 overflow-y-auto">
+                {activeCategory.subMenu.map((sub, i) => (
+                  <div
+                    key={i}
+                    onMouseEnter={() => setActiveSubMenu(sub)}
+                    className={`px-4 py-3 cursor-pointer flex justify-between items-center ${
+                      activeSubMenu?.title === sub.title
+                        ? "bg-white font-semibold text-purple-800"
+                        : "hover:bg-gray-100 text-gray-700"
+                    }`}
+                  >
+                    {sub.title}
+                    {sub.children?.length > 0 && <FiChevronRight />}
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Right Panel */}
+            {activeSubMenu && activeSubMenu.children?.length > 0 && (
+              <div className="w-1/2 bg-white p-6 overflow-y-auto">
+                <h2 className="text-lg font-semibold text-purple-700 mb-4">
+                  {activeSubMenu.title}
+                </h2>
+                <div className="grid grid-cols-2 gap-6 text-sm">
+                  {activeSubMenu.children.map((child, i) => (
+                    <div key={i}>
+                      <h3 className="font-semibold text-purple-700 mb-2">
+                        {child.title}
+                      </h3>
+                      <ul className="space-y-1">
+                        {child.items.map((item, j) => (
+                          <li
+                            key={j}
+                            className="hover:text-purple-600 cursor-pointer"
+                          >
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         )}
       </div>

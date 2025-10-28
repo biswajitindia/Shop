@@ -10,6 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Brands from "../Pages/Brands";
 import Footer from "../footeer.jsx/Footer";
 import AllBrands from "../Pages/AllBrands";
+import Contact from "../contact/Contact";
 
 
 const RouterPage = () => {
@@ -27,6 +28,7 @@ const RouterPage = () => {
         <Route path="/Register" element={< Register/>} />
          <Route path="/brands" element={<Brands />} />
           <Route path="/all-brands" element={<AllBrands />} />
+          <Route path="/contact" element={<Contact />} />
       </Routes>
       <ToastContainer position="top-right" autoClose={3000} />
       <Footer/>
