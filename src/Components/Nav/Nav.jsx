@@ -452,7 +452,7 @@ const Nav = () => {
                         {child.items.map((item, j) => (
                           <li
                             key={j}
-                            className="hover:text-purple-600 cursor-pointer"
+                            className="hover:text-purple-600 cursor-pointer text-black"
                           >
                             {item}
                           </li>

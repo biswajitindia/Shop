@@ -8,8 +8,8 @@ const Brands = () => {
   // Show first 19 brands, last slot is the "More Brands" button
   const displayBrands = brandName.slice(0, 19);
 
-  return (
-    <div className="bg-gray-50 py-16 px-6 md:px-40 text-center min-h-screen">
+  return ( 
+    <div className="bg-purple-50 py-16 px-6 md:px-70  min-h-screen">
       {/* Header */}
       <div className="mb-10">
         <p className="text-purple-700 font-semibold">
@@ -18,7 +18,7 @@ const Brands = () => {
         <h2 className="text-3xl font-bold text-gray-800 mt-2">
           Featured Manufacturers
         </h2>
-        <p className="text-gray-600 mt-3 max-w-3xl mx-auto">
+        <p className="text-gray-600 mt-5 max-w-6xl">
           Browse a full range of expert-vetted products from leading brands.
           Looking for a specific product? Find it quickly and easily by typing
           the name into the search bar above. Our customer care team is always
@@ -39,13 +39,13 @@ const Brands = () => {
             </span>
 
             {/* Animated Green Fill */}
-            <span className="absolute inset-0 bg-gradient-to-r from-gray-400 to-gray-500 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-[500ms] ease-out rounded-full"></span>
+            <span className="absolute inset-0 bg-gradient-to-r from-purple-200 to-purple-300 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-[500ms] ease-out rounded-full"></span>
           </div>
         ))}
 
         {/* Last circle: More Brands button */}
         <div
-          className="relative flex items-center justify-center w-32 h-32 border-2 border-purple-200 rounded-full bg-white shadow-sm hover:shadow-md transition transform hover:scale-105 overflow-hidden group cursor-pointer"
+          className="relative flex items-center justify-center w-43 h-43 border-2 border-purple-200 rounded-full bg-white shadow-sm hover:shadow-md transition transform hover:scale-105 overflow-hidden group cursor-pointer"
           onClick={() => navigate("/all-brands")}
         >
           <span className="relative z-10 text-purple-600 font-semibold text-sm transition-colors duration-700 group-hover:text-white">
