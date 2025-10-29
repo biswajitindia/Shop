@@ -12,6 +12,7 @@ import Footer from "../footeer.jsx/Footer";
 import AllBrands from "../brand/AllBrands";
 import Contact from "../contact/Contact";
 import Cart from "../cart/Cart";
+import ProductPage from "../Product/ProductPag";
 
 
 const RouterPage = () => {
@@ -31,6 +32,7 @@ const RouterPage = () => {
           <Route path="/all-brands" element={<AllBrands />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/checkout" element={<Cart />} />
+          <Route path="/ProductPag" element={ <ProductPage/>} />
       </Routes>
       <ToastContainer position="top-right" autoClose={3000} />
       <Footer/>
